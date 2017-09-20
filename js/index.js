@@ -71,14 +71,11 @@ function takeScreenShot() {
             if (editContent.style.display == 'none') {
                 $('#tipModal').modal('show');
             }else {
-                var preview = document.getElementsByClassName('preview')[0];
+                $('#img-content').attr({"src":"","data-original":""});
                 //转换成base64
                 var imgUrl = canvas.toDataURL("image/png");
-                var imgLabel = document.createElement("img");//创建a标签
-                preview.appendChild(imgLabel);
-                imgLabel.setAttribute("src", imgUrl);
-                imgLabel.className = "img-rounded";
-                preview.append(imgLabel);
+                $('#img-content').attr({"src":imgUrl,"data-original":imgUrl});
+                $('.preview').viewer();
             }
         },
         allowTaint: true

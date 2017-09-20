@@ -106,3 +106,12 @@ body {
     margin-bottom: 10px;
 }
 
+.img-content{
+    cursor: pointer;
+}
+
+.remark{
+    color: #4c8bf5;
+    font-size: 14px;
+}
+
