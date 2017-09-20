@@ -70,6 +70,15 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
 }
 
+.editContent{
+    background-color: #ffffff;
+}
+
+.color-picker{
+    margin-left: 10px;
+    width: 200px;
+}
+
 /*返回顶部图标*/
 .back-top {
     display: none;

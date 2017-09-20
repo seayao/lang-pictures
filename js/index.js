@@ -2,6 +2,16 @@
  * Created by Administrator on 2017/9/20.
  */
 $(document).ready(function () {
+    //设置背景色
+    $('#color-picker').colorpicker({
+        align: 'left',
+    }).on('changeColor', function (e) {
+        $('#editContent')[0].style.backgroundColor = e.color.toString('rgba');
+        if ($('#editContent').css('display') == 'none') {
+            $('.note-editable')[0].style.backgroundColor = e.color.toString('rgba');
+        }
+    });
+
     //summernote加载中文语言包
     $('.summernote').summernote({
         lang: 'zh-CN'
@@ -65,7 +75,7 @@ function save() {
 
 //截取指定区域
 function takeScreenShot() {
-    $('#img-content').attr({"src":"","data-original":""});
+    $('#img-content').attr({"src": "", "data-original": ""});
     html2canvas($('#editContent'), {
         onrendered: function (canvas) {
             if ($('#editContent').css('display') == 'none') {
@@ -73,7 +83,7 @@ function takeScreenShot() {
             } else {
                 //转换成base64
                 var imgUrl = canvas.toDataURL("image/png");
-                $('#img-content').attr({"src":imgUrl,"data-original":imgUrl});
+                $('#img-content').attr({"src": imgUrl, "data-original": imgUrl});
                 $('.preview').viewer();
             }
         },
