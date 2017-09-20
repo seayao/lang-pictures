@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="plugins/summernote/summernote.css">
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
     <link rel="stylesheet" href="plugins/viewer/viewer.min.css">
+    <link rel="stylesheet" href="css/oclock.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -37,6 +38,11 @@
                 <li><a href="http://www.mwyking.com:804" target="_blank">Chat<sup class="my-sup">Beta版</sup></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-sm">
+                <li>
+                    <a id="view-time" href="#">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    </a>
+                </li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#aboutModal">关于</a>
                 </li>
@@ -73,7 +79,7 @@
                     <span class="remark">【点击图片即可预览】</span>
                 </div>
                 <div class="preview">
-                    <img id="img-content" class="img-content" src=""  data-original="">
+                    <img id="img-content" class="img-content" src="" data-original="">
                 </div>
             </div>
         </div>
@@ -138,6 +144,36 @@
     </div>
 </div>
 
+<!--time Modal -->
+<div class="modal fade" id="timeModal" tabindex="-1" role="dialog" aria-labelledby="timeModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-body clock-content">
+            <div class="icon-large icon-clock">
+                <div class="clock">
+                    <ol>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                    <div id="hour" style="transform: rotate(50deg)"></div>
+                    <div id="min" style="transform: rotate(90deg)"></div>
+                    <div id="sec"></div>
+                    <div id="date"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--返回顶部按钮-->
 <a class="back-top" href="#">
     <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
@@ -150,5 +186,6 @@
 <script type="text/javascript" src="plugins/summernote/lang/summernote-zh-CN.js"></script>
 <script type="text/javascript" src="plugins/html2canvas/html2canvas.js"></script>
 <script type="text/javascript" src="plugins/viewer/viewer-jquery.min.js"></script>
+<script type="text/javascript" src="js/oclock.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </html>
