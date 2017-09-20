@@ -49,29 +49,28 @@ $(document).ready(function () {
 });
 
 //编辑
-var edit = function () {
+function edit() {
     $('#editContent').summernote({
         lang: 'zh-CN',
         focus: true
     });
-};
+}
 
 //预览（保存）
-var save = function () {
+function save() {
     var markup = $('#editContent').summernote('code'); //save HTML If you need.
     $('#editContent').summernote('destroy');
     //console.log(markup)
-};
+}
 
 //截取指定区域
 function takeScreenShot() {
-    var editContent = document.getElementById('editContent');
-    html2canvas(editContent, {
+    $('#img-content').attr({"src":"","data-original":""});
+    html2canvas($('#editContent'), {
         onrendered: function (canvas) {
-            if (editContent.style.display == 'none') {
+            if ($('#editContent').css('display') == 'none') {
                 $('#tipModal').modal('show');
-            }else {
-                $('#img-content').attr({"src":"","data-original":""});
+            } else {
                 //转换成base64
                 var imgUrl = canvas.toDataURL("image/png");
                 $('#img-content').attr({"src":imgUrl,"data-original":imgUrl});
