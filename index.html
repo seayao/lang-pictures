@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>长图</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/summernote/summernote.css">
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top slideUp slideDown" role="navigation" id="menu-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-sm" href="#" style="padding: 0">
+                <img src="img/logo.png" alt="">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class="hidden-sm hidden-md"><a href="#">首页</a></li>
+                <li><a href="#">音乐</a></li>
+                <li><a href="#">Answer</a></li>
+                <li><a href="#">Chat</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#aboutModal">关于</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div class="area">
+                <h3>编辑区域：</h3>
+                <div class="btn-content">
+                    <button id="edit" class="btn btn-sm btn-primary" type="button" onclick="edit()">编辑</button>
+                    <button id="save" class="btn btn-sm btn-info" type="button" onclick="save()">预览</button>
+                </div>
+                <div id="editContent" class="editContent">随便写点什么吧！</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <div class="area">
+                <h3>长图预览区：
+                    <small style="color: #555">（请点击预览后，再生成长图）</small>
+                </h3>
+                <div class="btn-content">
+                    <button class="btn btn-sm btn-warning" type="button" onclick="takeScreenShot()">生成长图</button>
+                </div>
+                <div class="preview">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--About Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="aboutModalLabel">关于</h4>
+            </div>
+            <div class="modal-body">
+                <p>为长图而生！</p>
+                <p>功能和样式调整中……</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--tip Modal -->
+<div class="modal fade" id="tipModal" tabindex="-1" role="dialog" aria-labelledby="tipModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="tipModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">
+                <p>请点击预览后，再生成长图！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--返回顶部按钮-->
+<a class="back-top" href="#">
+    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+</a>
+</body>
+<script src="lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/summernote/summernote.min.js"></script>
+<script type="text/javascript" src="plugins/summernote/lang/summernote-zh-CN.js"></script>
+<script type="text/javascript" src="plugins/html2canvas/html2canvas.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>

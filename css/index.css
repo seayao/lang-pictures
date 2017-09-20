@@ -1,0 +1,97 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /*解决模态框左右抖动问题*/
+    overflow: auto !important;
+    background-color: #f3f3f3;
+}
+
+/*按钮点击边框去除*/
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+}
+
+/*解决模态框左右抖动问题*/
+.modal {
+    overflow: auto !important;
+}
+
+/*导航菜单向上滑动*/
+.slideUp {
+    -webkit-transform:translateY(-100px);
+    -moz-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    -o-transform:translateY(-100px);
+    transform:translateY(-100px);
+    -webkit-transition: transform 1s ease-out;
+    -moz-transition: transform 1s ease-out;
+    -ms-transition: transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
+    transition: transform 1s ease-out;
+}
+/*导航菜单向下滑动*/
+.slideDown {
+    -webkit-transform:translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform:translateY(0);
+    transform:translateY(0);
+    -webkit-transition: transform .2s ease-out;
+    -moz-transition: transform .2s ease-out;
+    -ms-transition: ttransform .2s ease-out;
+    -o-transition: ttransform .2s ease-out;
+    transition: transform .2s ease-out;
+}
+
+.area{
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 10px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+/*返回顶部图标*/
+.back-top {
+    display: none;
+    z-index: 999999;
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #777;
+    color: #eee;
+    font-size: 24px;
+    line-height: 2;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    overflow: hidden;
+    border: none;
+    opacity: .8;
+}
+
+.back-top:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.back-top:active, .back-top:focus {
+    color: #fff;
+}
+
+.btn-content{
+    margin-bottom: 10px;
+}
+
