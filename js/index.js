@@ -2,6 +2,38 @@
  * Created by Administrator on 2017/9/20.
  */
 $(document).ready(function () {
+    //监听模式切换时
+    window.onresize = function () {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            $("#platformModal").modal('show');
+        }
+    };
+
+    //移动orPC
+    (function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            $("#platformModal").modal('show');
+        }
+    })();
+
     //设置背景色
     $('#color-picker').colorpicker({
         align: 'left',
@@ -74,9 +106,15 @@ function save() {
 
 //截取指定区域
 function takeScreenShot() {
+    //开启动画
+    $("#main-loading").loading({state: "open"});
+    $("#createPic").html("生成中…");
     $('#img-content').attr({"src": "", "data-original": ""});
     html2canvas($('#editContent'), {
         onrendered: function (canvas) {
+            //关闭动画
+            $("#main-loading").loading({state: "close"});
+            $("#createPic").html("生成长图");
             if ($('#editContent').css('display') == 'none') {
                 $('#tipModal').modal('show');
             } else {

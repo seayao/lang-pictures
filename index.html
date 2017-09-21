@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="plugins/summernote/summernote.css">
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
     <link rel="stylesheet" href="plugins/viewer/viewer.min.css">
-    <link rel="stylesheet" href="css/oclock.css">
+    <link rel="stylesheet" href="plugins/loading-byhy/css/loading.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/oclock.css">
 </head>
 <body>
+<div id="main-loading"></div>
 <div class="navbar navbar-default navbar-fixed-top slideUp slideDown" role="navigation" id="menu-nav">
     <div class="container">
         <div class="navbar-header">
@@ -75,7 +77,7 @@
                     <span class="remark">【请先点击左侧预览，再生成长图；长图生成后，鼠标右键另存为即可】</span>
                 </h3>
                 <div class="btn-content">
-                    <button class="btn btn-sm btn-warning" type="button" onclick="takeScreenShot()">生成长图</button>
+                    <button id="createPic" class="btn btn-sm btn-warning" type="button" onclick="takeScreenShot()">生成长图</button>
                     <span class="remark">【点击图片即可预览】</span>
                 </div>
                 <div class="preview">
@@ -96,10 +98,13 @@
                 <h4 class="modal-title" id="aboutModalLabel">关于</h4>
             </div>
             <div class="modal-body">
+                <p>更新日志：</p>
+                <p>1、支持Safari浏览器；</p>
+                <p>2、添加加载动画；</p>
+                <p>3、暂不支持手机浏览器。</p>
                 <p>为长图而生！</p>
-                <p>功能和样式调整中……</p>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer my-modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
             </div>
         </div>
@@ -118,7 +123,7 @@
             <div class="modal-body">
                 <p>请点击预览后，再生成长图！</p>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer my-modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
             </div>
         </div>
@@ -137,7 +142,7 @@
             <div class="modal-body">
                 <p>服务器已超负荷，该网站暂时关闭！</p>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer my-modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
             </div>
         </div>
@@ -174,6 +179,25 @@
     </div>
 </div>
 
+<!--tip Modal -->
+<div class="modal fade" id="platformModal" tabindex="-1" role="dialog" aria-labelledby="platformModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="platformModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">
+                <p>暂不支持移动端！</p>
+            </div>
+            <div class="modal-footer my-modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--返回顶部按钮-->
 <a class="back-top" href="#">
     <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
@@ -187,6 +211,7 @@
 <script type="text/javascript" src="plugins/summernote/lang/summernote-zh-CN.js"></script>
 <script type="text/javascript" src="plugins/html2canvas/html2canvas.js"></script>
 <script type="text/javascript" src="plugins/viewer/viewer-jquery.min.js"></script>
+<script type="text/javascript" src="plugins/loading-byhy/js/loading.js"></script>
 <script type="text/javascript" src="js/oclock.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </html>

@@ -21,6 +21,10 @@ body {
     overflow: auto !important;
 }
 
+.my-modal-footer{
+    margin-top: 0;
+}
+
 /*导航菜单向上滑动*/
 .slideUp {
     -webkit-transform:translateY(-100px);
