@@ -70,7 +70,6 @@ function edit() {
 function save() {
     var markup = $('#editContent').summernote('code'); //save HTML If you need.
     $('#editContent').summernote('destroy');
-    //console.log(markup)
 }
 
 //截取指定区域
