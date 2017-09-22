@@ -52,6 +52,10 @@ body {
     transition: transform .2s ease-out;
 }
 
+.my-nav{
+    background-color: #fff;
+}
+
 .my-sup{
     padding: 1px 2px;
     font-weight: 700;

@@ -17,7 +17,7 @@
 </head>
 <body>
 <div id="main-loading"></div>
-<div class="navbar navbar-default navbar-fixed-top slideUp slideDown" role="navigation" id="menu-nav">
+<div class="navbar navbar-default navbar-fixed-top slideUp slideDown my-nav" role="navigation" id="menu-nav">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,11 +33,25 @@
         <div class="navbar-collapse collapse" role="navigation">
             <ul class="nav navbar-nav">
                 <li class="hidden-sm hidden-md"><a href="#">首页</a></li>
-                <li><a href="http://www.mwyking.com:801" target="_blank">听见好声音<sup class="my-sup">手机版</sup></a></li>
-                <li><a href="#" data-toggle="modal" data-target="#hearModal">听见好声音<sup class="my-sup">PC版</sup></a></li>
-                <li><a href="http://www.mwyking.com:802" target="_blank">Answer</a></li>
-                <li><a href="http://www.mwyking.com:803" target="_blank">Game</a></li>
-                <li><a href="http://www.mwyking.com:804" target="_blank">Chat<sup class="my-sup">Beta版</sup></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">听见好声音<span class="caret"></span></a>
+                    <ul class="dropdown-menu text-center">
+                        <li>
+                            <a href="http://www.mwyking.com:801" target="_blank">
+                                <span class="label label-primary">移动版</span>
+                            </a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#hearModal">
+                                <span class="label label-primary">PC版</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="http://www.mwyking.com:803" target="_blank">Answer</a></li>
+                <li><a href="http://www.mwyking.com:804" target="_blank">GameCenter<sup class="my-sup">Beta版</sup></a></li>
+                <li><a href="http://www.mwyking.com:805" target="_blank">Chat<sup class="my-sup">Beta版</sup></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-sm">
                 <li>
@@ -140,7 +154,7 @@
                 <h4 class="modal-title" id="hearModalLabel">提示</h4>
             </div>
             <div class="modal-body">
-                <p>服务器已超负荷，该网站暂时关闭！</p>
+                <p>服务器已超负荷，PC版暂时关闭！</p>
             </div>
             <div class="modal-footer my-modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
