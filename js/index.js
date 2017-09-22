@@ -72,6 +72,13 @@ $(document).ready(function () {
             return false;
         });
     });
+
+    //bootstrap禁止点击隐藏下拉框组
+    $(function () {
+        $("ul.dropdown-menu").on("click", "[data-stopPropagation]", function (even) {
+            even.stopPropagation();
+        });
+    });
 });
 
 //编辑
@@ -80,12 +87,14 @@ function edit() {
         lang: 'zh-CN',
         focus: true
     });
+    $('#size-dm').attr("disabled",true).removeClass("btn-warning").addClass("btn-default");
 }
 
 //预览（保存）
 function save() {
     var markup = $('#editContent').summernote('code'); //save HTML If you need.
     $('#editContent').summernote('destroy');
+    $('#size-dm').attr("disabled",false).removeClass("btn-default").addClass("btn-warning");
 }
 
 //截取指定区域
@@ -113,3 +122,20 @@ function takeScreenShot() {
         // height: 300
     });
 }
+
+//选择尺寸
+$('.size-item').click(function (e) {
+    e.preventDefault();
+    var sizeCheck = $(this).attr('data-size');
+    $('#editContent').css('width', sizeCheck);
+});
+
+//自定义尺寸
+$('#sizeBtn').click(function () {
+    var sizeSelf = $('#sizeSelf').val();
+    if (sizeSelf) {
+        $('#editContent').css('width', sizeSelf);
+    }
+    $('.dropdown-menu').dropdown('toggle');
+    $('#sizeSelf').val("");
+});

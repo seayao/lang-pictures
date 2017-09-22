@@ -74,8 +74,33 @@
                 <h3>文档区域：</h3>
                 <div class="btn-content clearfix">
                     <div class="pull-left">
-                        <button id="edit" class="btn btn-sm btn-primary" type="button" onclick="edit()">编辑</button>
-                        <button id="save" class="btn btn-sm btn-info" type="button" onclick="save()">预览</button>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button id="edit" class="btn btn-sm btn-primary" type="button" onclick="edit()">编辑</button>
+                            <button id="save" class="btn btn-sm btn-info" type="button" onclick="save()">预览</button>
+                            <button id="size-dm" class="btn btn-sm btn-warning dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                尺寸
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu text-center" aria-labelledby="size-dm">
+                                <li data-stopPropagation="true"><a href="#">选择宽度</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="size-item" data-size="150%"><a href="#">150%</a></li>
+                                <li class="size-item" data-size="100%"><a href="#">100%</a></li>
+                                <li class="size-item" data-size="50%"><a href="#">50%</a></li>
+                                <li class="size-item" data-size="20%"><a href="#">20%</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li data-stopPropagation="true"><a href="#">自定义宽度(%或px)</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li data-stopPropagation="true" style="padding: 3px 20px">
+                                    <div class="input-group">
+                                        <input id="sizeSelf" type="text" class="form-control">
+                                        <span class="input-group-btn">
+                                            <button id="sizeBtn" class="btn btn-default" type="button">确定</button>
+                                        </span>
+                                    </div><!-- /input-group -->
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div id="color-picker" class="color-picker input-group colorpicker-component pull-left">
                         <input type="text" value="#ffffff" class="form-control" style="height: 30px"/>
@@ -91,7 +116,7 @@
                     <span class="remark">【请先点击左侧预览，再生成长图；长图生成后，鼠标右键另存为即可】</span>
                 </h3>
                 <div class="btn-content">
-                    <button id="createPic" class="btn btn-sm btn-warning" type="button" onclick="takeScreenShot()">生成长图</button>
+                    <button id="createPic" class="btn btn-sm btn-success" type="button" onclick="takeScreenShot()">生成长图</button>
                     <span class="remark">【点击图片即可预览】</span>
                 </div>
                 <div class="preview">
@@ -125,10 +150,12 @@
             </div>
             <div class="modal-body">
                 <p>更新日志：</p>
-                <p>1、支持Safari浏览器；</p>
-                <p>2、添加加载动画；</p>
-                <p>3、暂不支持手机浏览器。</p>
-                <p>为长图而生！</p>
+                <p>1、支持Safari浏览器。<small>—2017-09-20</small></p>
+                <p>2、增加加载动画，提供更好的交互体验。<small>—2017-09-20</small></p>
+                <p>3、增加尺寸选择和自定义尺寸。<small>—2017-09-22</small></p>
+                <p>tip:暂不支持手机浏览器。</p>
+                <p class="text-center">专注做长图！</p>
+                <p class="text-center">Copyright&nbsp;&copy;&nbsp;<a href="http://www.mwyking.com">seayao</a>&nbsp;&nbsp; 2015 - 2017 &nbsp;&nbsp;All rights reserved.</p>
             </div>
             <div class="modal-footer my-modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
