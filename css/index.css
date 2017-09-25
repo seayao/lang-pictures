@@ -1,6 +1,5 @@
 body {
     padding-top: 50px;
-    padding-bottom: 20px;
     /*解决模态框左右抖动问题*/
     overflow: auto !important;
     background-color: #f3f3f3;
@@ -135,14 +134,13 @@ body {
 
 .footer{
     width: 100%;
-    position: fixed;
-    bottom: 0;
     background: #fff;
+    margin-top: 15px;
 }
 
 .copyright{
-    padding: 15px 0 10px;
-    font-size: 13px;
+    padding-top: 12px;
+    font-size: 12px;
     text-align: center;
     color: #555555;
     border-top: 1px solid #eaeaea;
