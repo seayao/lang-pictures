@@ -39,7 +39,7 @@
             var loadHtml = '';
             loadHtml += '<div class="yhy-loading-con">';
             loadHtml += '<div class="yhy-loading-circle"></div>';
-            loadHtml += '<img class="yhy-pre-load-img" src="./plugins/loading-byhy/img/lol/' + _type + '.jpg">';
+            loadHtml += '<img class="yhy-pre-load-img" src="./plugins/loading-bysea/img/lol/' + _type + '.jpg">';
             loadHtml += ' </div>';
             _this.append(loadHtml);
 
