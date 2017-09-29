@@ -37,7 +37,7 @@ $(document).ready(function () {
     $('#editContent').summernote({
         lang: 'zh-CN',
         focus: true,
-        height: 300
+        height: 650
     });
 
     //智能隐藏导航栏
