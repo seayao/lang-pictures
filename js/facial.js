@@ -11,7 +11,7 @@ document.getElementById('file').addEventListener('change', function (e) {
         r.onload = function (e) {
             img.src = this.result;
         };
-        restore();
+        clearAll();
     }
 });
 
@@ -25,7 +25,7 @@ var ctx = c.getContext("2d");
 var faceLeft = 0;
 var faceTop = 0;
 var prop = 1;
-var tracker = new tracking.ObjectTracker(['face']);
+var tracker = new tracking.ObjectTracker('face');
 tracker.on('track', function (event) {
     if (!event.data.length) {
         comBtn.forEach(function (e) {
@@ -36,43 +36,50 @@ tracker.on('track', function (event) {
             timeout: 5e3,
             has_progress: true
         });
-        $('.compound-tool').css('display','none');
-    }
-    comBtn.forEach(function (e) {
-        e.classList.remove('hide');
-    });
-    //识别成功，关闭动画
-    $("#main-loading").loading({state: "close"});
-    event.data.forEach(function (rect, i) {
-        if (!i) {
-            theFace = rect;
-        }
-        $('.compound-tool').css('display','block');
-        plot(rect.x, rect.y, rect.width, rect.height);
-        ctx.drawImage(img, rect.x * prop, rect.y * prop, rect.width * prop, rect.height * prop, faceLeft, faceTop, rect.width * prop, rect.height * prop);
-        if (faceLeft + (rect.width * prop + 10) < 500) {
-            faceLeft += (rect.width * prop + 10);
+        $('.compound-tool').css('display', 'none');
+    } else {
+        //识别成功，关闭动画
+        $("#main-loading").loading({state: "close"});
+        comBtn.forEach(function (e) {
+            e.classList.remove('hide');
+        });
+        var faceArr;
+        //识别结果排序
+        if (event.data.length == 1) {
+            faceArr = event.data;
         } else {
-            faceLeft = 0;
-            faceTop += 200;
+            faceArr = arraySort(event.data, 'x');
         }
-    });
+        faceArr.forEach(function (rect, i) {
+            if (!i) {
+                theFace = rect;
+            }
+            plot(rect.x, rect.y, rect.width, rect.height);
+            ctx.drawImage(img, rect.x * prop, rect.y * prop, rect.width * prop, rect.height * prop, faceLeft, faceTop, rect.width * prop, rect.height * prop);
+            if (faceLeft + (rect.width * prop + 10) < 500) {
+                faceLeft += (rect.width * prop + 10);
+            } else {
+                faceLeft = 0;
+                faceTop += 200;
+            }
+        });
+    }
 });
 
 var trackerTask;
 //开始识别
 document.getElementById('track').addEventListener('click', function () {
+    //正在识别，开启动画
+    $("#main-loading").loading({state: "open"});
     if (!img.src) {
         $.seaToast("失败", "未检测到照片！", "error", {
             stack: true,
             timeout: 5e3,
             has_progress: true
         });
-        $('.compound-tool').css('display','none');
+        $('.compound-tool').css('display', 'none');
         return null;
     }
-    //正在识别，开启动画
-    $("#main-loading").loading({state: "open"});
     restore();
     c.width = img.width;
     c.height = img.height;
@@ -89,7 +96,7 @@ document.getElementById('track').addEventListener('click', function () {
     } else {
         prop = 1;
     }
-    trackerTask = tracking.track('#img', tracker);
+    trackerTask = tracking.track(img, tracker);
 });
 
 //识别区域划线
@@ -101,6 +108,7 @@ function plot(x, y, w, h) {
     rect.style.height = h + 'px';
     rect.style.left = (img.offsetLeft + x) + 'px';
     rect.style.top = (img.offsetTop + y) + 'px';
+    $('.compound-tool').css('display', 'block');
 }
 
 //恢复现场
@@ -116,18 +124,18 @@ function restore() {
             main.removeChild(rects[i]);
         }
     }
+    $('.compound-tool').css('display', 'none');
 }
 
 //清空
-document.getElementById('resetAll').addEventListener('click', function () {
-    $('.compound-tool').css('display','none');
+function clearAll() {
     img.removeAttribute('src');
     ctx.clearRect(0, 0, c.width, c.height);
     comBtn.forEach(function (e) {
         e.classList.add('hide');
     });
     restore();
-});
+}
 
 //图片合成
 var theFace;
