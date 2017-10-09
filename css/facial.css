@@ -1,0 +1,39 @@
+.sea-container{
+    min-height: 600px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.sea-content-west{
+    padding-right: 0;
+}
+
+.sea-content-east{
+    padding-left: 0;
+}
+
+.pub-area{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.view-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.rect {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+    border-radius: 2px;
+    border: 2px dashed #dd5044;
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.compound-tool{
+    display: none;
+}

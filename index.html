@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="plugins/viewer/viewer.min.css">
     <link rel="stylesheet" href="plugins/loading-bysea/css/loading.css">
     <link rel="stylesheet" href="plugins/jquery-slider/css/rangeslider.css">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/oclock.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="http://www.mwyking.com:8888/js/baidutongji.js"></script>
 </head>
 <body>
 <div id="main-loading"></div>
@@ -34,14 +36,15 @@
         <div class="navbar-collapse collapse" role="navigation">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="#" data-toggle="modal" data-target="#aboutModal">待定</a></li>
+                <li class=""><a href="facial.html">人脸识别</a></li>
                 <li class=""><a href="#" data-toggle="modal" data-target="#aboutModal">待定</a></li>
             </ul>
             <div class="col-md-4 col-sm-4">
                 <form class="navbar-form navbar-left" style="width: 100%">
                     <div class="form-group" style="position: relative;width: 100%">
-                        <input type="text" class="search-box form-control" placeholder="搜索文档…">
-                        <span class="glyphicon glyphicon-search search-btn" aria-hidden="true" data-toggle="modal" data-target="#aboutModal"></span>
+                        <input type="text" class="search-box form-control" placeholder="搜索…">
+                        <span class="glyphicon glyphicon-search search-btn" aria-hidden="true" data-toggle="modal"
+                              data-target="#aboutModal"></span>
                     </div>
                 </form>
             </div>
@@ -75,7 +78,7 @@
 
             <div id="img-area" class="img-area">
                 <div class="img-area-title">
-                    <p class="remark">点击图片即可预览，右键保存</p>
+                    <p class="sea-remark">点击图片即可预览，右键保存</p>
                 </div>
                 <div class="preview" style="margin-top: 20px">
                     <img id="img-content" class="img-content" src="" data-original="">
@@ -89,7 +92,7 @@
                 </div>
                 <ul class="list-group east-tool-list">
                     <li class="list-group-item">
-                        <p class="remark">【文档编辑与保存】</p>
+                        <p class="sea-remark">【文档编辑与保存】</p>
                         <div class="text-center">
                             <button id="edit" class="btn btn-sm btn-primary" type="button" onclick="edit()">编辑文档
                             </button>
@@ -97,14 +100,14 @@
                         </div>
                     </li>
                     <li class="list-group-item">
-                        <p class="remark">【背景颜色选取】</p>
+                        <p class="sea-remark">【背景颜色选取】</p>
                         <div id="color-picker" class="color-picker input-group colorpicker-component text-center">
                             <input type="text" value="#ffffff" class="form-control" style="height: 30px"/>
                             <span class="input-group-addon"><i></i></span>
                         </div>
                     </li>
                     <li class="list-group-item">
-                        <p class="remark">【文档整体宽度，单位%】</p>
+                        <p class="sea-remark">【文档整体宽度，单位%】</p>
                         <div id="my-slider1" class="doc-top-slider text-center">
                             <label class="sr-only" for="slider-control1">拖动</label>
                             <input id="slider-control1" type="range" min="10" max="150" step="5" value="100"
@@ -124,7 +127,7 @@
                         </form>
                     </li>
                     <li class="list-group-item">
-                        <p class="remark">【文档内容偏移，单位px】</p>
+                        <p class="sea-remark">【文档内容偏移，单位px】</p>
                         <div id="my-slider2" class="doc-top-slider text-center">
                             <label class="sr-only" for="slider-control2">拖动</label>
                             <input id="slider-control2" type="range" min="0" max="200" value="100" data-rangeslider
@@ -144,7 +147,7 @@
                         </form>
                     </li>
                     <li class="list-group-item">
-                        <p class="remark">【生成图片】</p>
+                        <p class="sea-remark">【生成图片】</p>
                         <div class="text-center">
                             <button id="createPic" class="btn btn-sm btn-success" type="button"
                                     onclick="takeScreenShot()">生成长图
@@ -226,17 +229,46 @@
                 <p>4、整体布局和样式调整。
                     <small>—2017-09-28</small>
                 </p>
-                <p>5、功能增加与优化，新增<span class="remark">【文档内容偏移】</span>，优化<span class="remark">【文档整体宽度】</span>。
+                <p>5、功能增加与优化，新增<span class="sea-remark">【文档内容偏移】</span>，优化<span class="sea-remark">【文档整体宽度】</span>。
                     <small>—2017-09-28</small>
                 </p>
-                <p>tip:暂不支持手机浏览器。</p>
+                <p>6、模块增加与样式优化，新增<span class="sea-remark">【人脸识别】</span>模块。
+                    <small>—2017-10-09</small>
+                </p>
+                <p class="sea-tips">设备及浏览器支持支持：</p>
+                <div class="table-responsive" style="width: 90%">
+                    <table class="table table-bordered table-hover text-center">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 15%">#</th>
+                            <th class="text-center">PC端</th>
+                            <th class="text-center">移动端</th>
+                            <th class="text-center">……</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th class="text-center">长图</th>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-no glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">人脸识别</th>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="text-center" style="border-top: 1px solid #ddd;margin: 0 -20px;padding-top: 10px">
-                    <img src="img/logo.png" alt="长图">
-                    <span>专注做长图！</span>
+                    <img src="img/logo.png" alt="首页">
+                    <span>简约而不简单！</span>
                 </div>
                 <p class="text-center" style="margin-bottom: 0">Copyright&nbsp;&copy;&nbsp;<a
-                        href="http://www.mwyking.com">seayao</a>&nbsp;&nbsp;
-                    2015 - 2017 &nbsp;&nbsp;All rights reserved.</p>
+                        href="http://www.mwyking.com">seayao</a>&nbsp;
+                    2015 - 2017 &nbsp;All rights reserved.</p>
             </div>
         </div>
     </div>
@@ -291,25 +323,6 @@
     </div>
 </div>
 
-<!--tip Modal -->
-<div class="modal fade" id="platformModal" tabindex="-1" role="dialog" aria-labelledby="platformModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="platformModalLabel">提示</h4>
-            </div>
-            <div class="modal-body">
-                <p>暂不支持移动端！</p>
-            </div>
-            <div class="modal-footer my-modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--返回顶部按钮-->
 <a class="back-top" href="#">
     <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
@@ -325,6 +338,7 @@
 <script type="text/javascript" src="plugins/viewer/viewer-jquery.min.js"></script>
 <script type="text/javascript" src="plugins/loading-bysea/js/loading.js"></script>
 <script type="text/javascript" src="plugins/jquery-slider/js/rangeslider.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/oclock.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </html>

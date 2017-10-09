@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>人脸识别</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/loading-bysea/css/loading.css">
+    <link rel="stylesheet" href="plugins/jquery-toast/css/toast.style.css">
+    <link rel="stylesheet" href="css/oclock.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/facial.css">
+</head>
+<body>
+<div id="main-loading"></div>
+<div class="navbar navbar-default navbar-fixed-top slideUp slideDown my-nav" role="navigation" id="menu-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-sm" href="index.html" style="padding: 0">
+                <img src="img/logo.png" alt="首页">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="index.html">首页<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="facial.html">人脸识别</a></li>
+                <li class=""><a href="#" data-toggle="modal" data-target="#aboutModal">待定</a></li>
+            </ul>
+            <div class="col-md-4 col-sm-4">
+                <form class="navbar-form navbar-left" style="width: 100%">
+                    <div class="form-group" style="position: relative;width: 100%">
+                        <input type="text" class="search-box form-control" placeholder="搜索…">
+                        <span class="glyphicon glyphicon-search search-btn" aria-hidden="true" data-toggle="modal"
+                              data-target="#aboutModal"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="pull-right">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a id="view-time" href="javascript:;">
+                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li><a href="#" data-toggle="modal" data-target="#aboutModal">登录</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#aboutModal">注册</a></li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#aboutModal">关于</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container sea-container">
+    <div class="row">
+        <div class="sea-content-west col-sm-6 col-md-6">
+            <div class="pub-area">
+                <h3>选择图片</h3>
+                <form>
+                    <div class="form-group">
+                        <span>上传本地图片：</span>
+                        <label for="file" class="btn btn-sm btn-primary" style="overflow: hidden;">上传
+                            <input id="file" type="file" accept="image/png,image/jpeg"
+                                   style="position: absolute;top:-100px;">
+                        </label>
+                    </div>
+                </form>
+                <form>
+                    <div class="form-group">
+                        <button id="track" class="btn btn-danger" type="button">开始识别</button>
+                        <button id="resetAll" class="btn btn-default" type="button"><span
+                                class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp;重置
+                        </button>
+                    </div>
+                </form>
+                <!--待识别区域-->
+                <div id="main" class="view-container text-center">
+                    <img id="img" src="img/people/zjl.jpg" alt="人物">
+                </div>
+            </div>
+        </div>
+
+        <div class="sea-content-east col-sm-6 col-md-6">
+            <div class="pub-area">
+                <h3>参数设置</h3>
+                <p class="" style="margin-bottom: 4px">参数设置功能进一步完善中</p>
+                <!--照片合成-->
+                <div class="compound-tool">
+                    <p class="sea-tips" style="margin-bottom: 4px">照片合成等功能，升级中…</p>
+                    <form>
+                        <div class="form-group">
+                            <button class="btn btn-primary compound male" type="button">合成男军装照</button>
+                            <button class="btn btn-danger compound" type="button">合成女军装照</button>
+                        </div>
+                    </form>
+                </div>
+                <!--识别结果-->
+                <div class="text-center">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+                <div class="hide">
+                    <img id="femaleBg" src="img/female.png">
+                    <img id="maleBg" src="img/male.png">
+                    <img id="theFace" src="">
+                    <canvas id="faceCtx"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--About Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="aboutModalLabel">关于</h4>
+            </div>
+            <div class="modal-body">
+                <p>更新日志：</p>
+                <p>1、支持Safari浏览器。
+                    <small>—2017-09-20</small>
+                </p>
+                <p>2、增加加载动画，提供更好的交互体验。
+                    <small>—2017-09-20</small>
+                </p>
+                <p>3、增加尺寸选择和自定义尺寸。
+                    <small>—2017-09-22</small>
+                </p>
+                <p>4、整体布局和样式调整。
+                    <small>—2017-09-28</small>
+                </p>
+                <p>5、功能增加与优化，新增<span class="sea-remark">【文档内容偏移】</span>，优化<span class="sea-remark">【文档整体宽度】</span>。
+                    <small>—2017-09-28</small>
+                </p>
+                <p>6、模块增加与样式优化，新增<span class="sea-remark">【人脸识别】</span>模块。
+                    <small>—2017-10-09</small>
+                </p>
+                <p class="sea-tips">设备及浏览器支持支持：</p>
+                <div class="table-responsive" style="width: 90%">
+                    <table class="table table-bordered table-hover text-center">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 15%">#</th>
+                            <th class="text-center">PC端</th>
+                            <th class="text-center">移动端</th>
+                            <th class="text-center">……</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th class="text-center">长图</th>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-no glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">人脸识别</th>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                            <td><span class="sea-ok glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center" style="border-top: 1px solid #ddd;margin: 0 -20px;padding-top: 10px">
+                    <img src="img/logo.png" alt="首页">
+                    <span>简约而不简单！</span>
+                </div>
+                <p class="text-center" style="margin-bottom: 0">Copyright&nbsp;&copy;&nbsp;<a
+                        href="http://www.mwyking.com">seayao</a>&nbsp;
+                    2015 - 2017 &nbsp;All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--time Modal -->
+<div class="modal fade" id="timeModal" tabindex="-1" role="dialog" aria-labelledby="timeModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-body clock-content">
+            <div class="icon-large icon-clock">
+                <div class="clock">
+                    <ol>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                    <div id="hour" style="transform: rotate(50deg)"></div>
+                    <div id="min" style="transform: rotate(90deg)"></div>
+                    <div id="sec"></div>
+                    <div id="date"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--返回顶部按钮-->
+<a class="back-top" href="#">
+    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+</a>
+</body>
+<script type="text/javascript" src="lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/promise/promise.min.js"></script>
+<script type="text/javascript" src="plugins/tracking/tracking-min.js"></script>
+<script type="text/javascript" src="plugins/tracking/data/face-min.js"></script>
+<script type="text/javascript" src="plugins/alloyimage/alloyimage-1.1.js"></script>
+<script type="text/javascript" src="plugins/loading-bysea/js/loading.js"></script>
+<script type="text/javascript" src="plugins/jquery-toast/js/toast.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/oclock.js"></script>
+<script type="text/javascript" src="js/facial.js"></script>
+</html>

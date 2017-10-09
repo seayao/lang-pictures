@@ -1,0 +1,219 @@
+body {
+    padding-top: 50px;
+    /*解决模态框左右抖动问题*/
+    overflow: auto !important;
+    background-color: #f3f3f3;
+}
+
+/*按钮点击边框去除*/
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+}
+
+/*清除浮动*/
+.f-cb:after{
+    clear: both;
+    content: '.';
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/*解决模态框左右抖动问题*/
+.modal {
+    overflow: auto !important;
+}
+
+.my-modal-footer{
+    margin-top: 0;
+}
+
+/*导航菜单向上滑动*/
+.slideUp {
+    -webkit-transform:translateY(-100px);
+    -moz-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    -o-transform:translateY(-100px);
+    transform:translateY(-100px);
+    -webkit-transition: transform 1s ease-out;
+    -moz-transition: transform 1s ease-out;
+    -ms-transition: transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
+    transition: transform 1s ease-out;
+}
+/*导航菜单向下滑动*/
+.slideDown {
+    -webkit-transform:translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform:translateY(0);
+    transform:translateY(0);
+    -webkit-transition: transform .2s ease-out;
+    -moz-transition: transform .2s ease-out;
+    -ms-transition: ttransform .2s ease-out;
+    -o-transition: ttransform .2s ease-out;
+    transition: transform .2s ease-out;
+}
+
+.my-nav{
+    background-color: #fff;
+}
+
+.my-sup{
+    padding: 1px 2px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    white-space: nowrap;
+    border-radius: .25em;
+    background-color: #d9534f;
+    vertical-align: super;
+}
+
+/*导航栏搜索框*/
+.search-box {
+    width: 100% !important;
+    padding-right: 20px;
+}
+
+.search-btn {
+    position: absolute;
+    top: 9px;
+    right: 8px;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    color: #4c8bf5;
+}
+
+/*返回顶部图标*/
+.back-top {
+    display: none;
+    z-index: 999999;
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #777;
+    color: #eee;
+    font-size: 24px;
+    line-height: 2;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    overflow: hidden;
+    border: none;
+    opacity: .8;
+}
+
+.back-top:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.back-top:active, .back-top:focus {
+    color: #fff;
+}
+
+/*提示文字*/
+.sea-remark{
+    color: #dd5044;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.sea-tips{
+    font-size: 12px;
+    color: #ababab;
+}
+
+.sea-no{
+    color: #dd5044;
+}
+
+.sea-ok{
+    color: #1da362;
+}
+
+/*页脚部分*/
+.footer-content {
+    margin-top: 20px;
+    padding: 0 10px;
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.concern-us {
+    text-align: center;
+}
+
+.concern-us p {
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.concern-us .concern-list {
+    margin-bottom: 20px;
+}
+
+.concern-us .concern-list .logo-item {
+    width: 36px;
+}
+
+.concern-us .concern-list .logo-item-game {
+    width: 40px;
+}
+
+.concern-us .concern-list .logo-item-hear {
+    width: 30px;
+}
+
+.concern-us .concern-list .logo-item-answer {
+    width: 28px;
+}
+
+.concern-us .concern-list .logo-item-chat {
+    width: 33px;
+}
+
+.foot-content-bottom {
+    padding: 10px;
+}
+
+.foot-copyright{
+    font-size: 12px;
+}
+
+.foot-content-right {
+    position: relative;
+    font-size: 12px;
+}
+
+.scan-log span {
+    margin-right: 10px;
+}
+
+.web-code-div {
+    display: none;
+    position: absolute;
+    top: -140px;
+    left: -10px;
+}
+
+.web-code-div img {
+    width: 140px;
+    height: auto;
+}
