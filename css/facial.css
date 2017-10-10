@@ -1,27 +1,28 @@
-.sea-container{
+.sea-container {
     min-height: 600px;
     margin-top: 10px;
     background-color: #fff;
 }
 
-.sea-content-west{
+.sea-content-west {
     padding-right: 0;
 }
 
-.sea-content-east{
+.sea-content-east {
     padding-left: 0;
 }
 
-.pub-area{
+.pub-area {
     width: 100%;
     height: auto;
     padding: 10px;
     background-color: #fff;
 }
 
-.view-container {
+.view-container, .res-container {
     position: relative;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .rect {
@@ -34,6 +35,6 @@
     cursor: pointer;
 }
 
-.compound-tool{
+.compound-tool {
     display: none;
 }

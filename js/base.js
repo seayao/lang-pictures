@@ -1,8 +1,7 @@
 /**
  * Created by Administrator on 2017/10/9.
  */
-
-    //移动orPC
+//移动orPC
 (function browserRedirect() {
     var sUserAgent = navigator.userAgent.toLowerCase();
     var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";

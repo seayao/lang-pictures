@@ -28,6 +28,9 @@ var prop = 1;
 var tracker = new tracking.ObjectTracker('face');
 tracker.on('track', function (event) {
     if (!event.data.length) {
+        //识别失败，关闭动画
+        $("#main-loading").loading({state: "close"});
+        $('.compound-tool').css('display', 'none');
         comBtn.forEach(function (e) {
             e.classList.add('hide');
         });
@@ -36,10 +39,10 @@ tracker.on('track', function (event) {
             timeout: 5e3,
             has_progress: true
         });
-        $('.compound-tool').css('display', 'none');
     } else {
         //识别成功，关闭动画
         $("#main-loading").loading({state: "close"});
+
         comBtn.forEach(function (e) {
             e.classList.remove('hide');
         });
@@ -77,6 +80,8 @@ document.getElementById('track').addEventListener('click', function () {
             timeout: 5e3,
             has_progress: true
         });
+        //未检测到照片，关闭动画
+        $("#main-loading").loading({state: "close"});
         $('.compound-tool').css('display', 'none');
         return null;
     }
