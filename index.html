@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/oclock.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
-    <script type="text/javascript" src="http://www.mwyking.com:8888/js/baidutongji.js"></script>
+    <!--<script type="text/javascript" src="http://www.mwyking.com:8888/js/baidutongji.js"></script>-->
 </head>
 <body>
 <div id="main-loading"></div>
@@ -154,54 +154,77 @@
                             </button>
                         </div>
                     </li>
+                    <li class="list-group-item">
+                        <p class="sea-remark">【下载文档】</p>
+                        <form id="html-options">
+                            <label for="html-filename">文件名</label>
+                            <div class="input-group">
+                                <input id="html-filename" type="text" class="form-control" placeholder="filename"
+                                       aria-label="...">
+                                <div class="input-group-btn">
+                                    <button id="fileTypeShow" type="button" class="btn btn-default dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">.txt<span class="caret"></span>
+                                    </button>
+                                    <ul id="fileTypeSelect" class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:;">.doc</a></li>
+                                        <li><a href="javascript:;">.html</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-center" style="margin: 10px 0">
+                                <button class="btn btn-sm btn-primary" type="submit">下载文档</button>
+                            </div>
+                        </form>
+                        <p id="downloadTips" class="downloadTips">提示：请先保存文档后再点击下载！</p>
+                    </li>
                 </ul>
             </div>
-
-            <div class="footer-content">
-                <div class="concern-us">
-                    <p>友情链接</p>
-                    <ul class="list-inline concern-list">
-                        <li>
-                            <a href="http://www.mwyking.com:801" target="_blank">
-                                <img class="logo-item logo-item-hear" src="http://www.mwyking.com:8888/logo/hear.svg"
-                                     alt="听见好声音m">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.mwyking.com:803" target="_blank">
-                                <img class="logo-item logo-item-answer"
-                                     src="http://www.mwyking.com:8888/logo/answer.svg" alt="Answer">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.mwyking.com:804" target="_blank">
-                                <img class="logo-item logo-item-game"
-                                     src="http://www.mwyking.com:8888/logo/game-center.svg" alt="游戏中心">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.mwyking.com:805" target="_blank">
-                                <img class="logo-item logo-item-chat" src="http://www.mwyking.com:8888/logo/chat.svg"
-                                     alt="聊天">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="foot-content-bottom">
-                    <div class="foot-copyright">
-                        <p>Copyright&nbsp;&copy;&nbsp;2017&nbsp;<a href="http://www.mwyking.com">seayao</a></p>
-                        <p>2015&nbsp;-&nbsp;2017&nbsp;All&nbsp;rights&nbsp;reserved.</p>
-                    </div>
-                    <div class="foot-content-right">
-                        <a class="scan-log" href="javascript:;">
-                            <span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>点击扫码登录
-                        </a>
-                        <div class="web-code-div">
-                            <img src="http://www.mwyking.com:8888/qrcode/lang-pictures.svg" alt="长图">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="footer-content">-->
+            <!--<div class="concern-us">-->
+            <!--<p>友情链接</p>-->
+            <!--<ul class="list-inline concern-list">-->
+            <!--<li>-->
+            <!--<a href="http://www.mwyking.com:801" target="_blank">-->
+            <!--<img class="logo-item logo-item-hear" src="http://www.mwyking.com:8888/logo/hear.svg"-->
+            <!--alt="听见好声音m">-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="http://www.mwyking.com:803" target="_blank">-->
+            <!--<img class="logo-item logo-item-answer"-->
+            <!--src="http://www.mwyking.com:8888/logo/answer.svg" alt="Answer">-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="http://www.mwyking.com:804" target="_blank">-->
+            <!--<img class="logo-item logo-item-game"-->
+            <!--src="http://www.mwyking.com:8888/logo/game-center.svg" alt="游戏中心">-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="http://www.mwyking.com:805" target="_blank">-->
+            <!--<img class="logo-item logo-item-chat" src="http://www.mwyking.com:8888/logo/chat.svg"-->
+            <!--alt="聊天">-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="foot-content-bottom">-->
+            <!--<div class="foot-copyright">-->
+            <!--<p>Copyright&nbsp;&copy;&nbsp;2017&nbsp;<a href="http://www.mwyking.com">seayao</a></p>-->
+            <!--<p>2015&nbsp;-&nbsp;2017&nbsp;All&nbsp;rights&nbsp;reserved.</p>-->
+            <!--</div>-->
+            <!--<div class="foot-content-right">-->
+            <!--<a class="scan-log" href="javascript:;">-->
+            <!--<span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>点击扫码登录-->
+            <!--</a>-->
+            <!--<div class="web-code-div">-->
+            <!--<img src="http://www.mwyking.com:8888/qrcode/lang-pictures.svg" alt="长图">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -338,6 +361,10 @@
 <script type="text/javascript" src="plugins/viewer/viewer-jquery.min.js"></script>
 <script type="text/javascript" src="plugins/loading-bysea/js/loading.js"></script>
 <script type="text/javascript" src="plugins/jquery-slider/js/rangeslider.min.js"></script>
+<script type="text/javascript" src="plugins/fileSaver/Blob.js"></script>
+<script type="text/javascript" src="plugins/fileSaver/canvas-toBlob.js"></script>
+<script type="text/javascript" src="plugins/fileSaver/FileSaver.min.js"></script>
+<script type="text/javascript" src="plugins/fileSaver/demo.js"></script>
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/oclock.js"></script>
 <script type="text/javascript" src="js/index.js"></script>

@@ -140,3 +140,13 @@ function takeScreenShot() {
         });
     }
 }
+
+//更改文件后缀名
+$('#fileTypeSelect').on('click','li',function(){
+    var fileType = $(this).text();
+    $('#fileTypeShow').text(fileType);
+});
+
+$('#html-filename').focus(function(){
+   $('#downloadTips').hide();
+});
