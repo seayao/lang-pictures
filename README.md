@@ -2,4 +2,4 @@
 制作长图的一个在线网站
 
 # 链接
-[预览](http://www.mwyking.com)
+[预览](http://www.seayao121.com:801)
